@@ -75,8 +75,16 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
-        }
+            score.Text = Convert.ToString(((TwoZeroFourEightModel)model).score);
+            //
+            if (((TwoZeroFourEightModel)model).isOver())
+            {
+                MessageBox.Show("Game Over");
+                Close();
+            }
 
+        }
+        
         private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
@@ -97,5 +105,12 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
+        private void Up(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.W)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+            }
+        }
     }
 }

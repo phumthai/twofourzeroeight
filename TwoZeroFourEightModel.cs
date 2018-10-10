@@ -11,7 +11,7 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
-
+        public int score = 0;
         public TwoZeroFourEightModel() : this(4)
         {
             // default board size is 4 
@@ -36,11 +36,63 @@ namespace twozerofoureight
             board = Random(board);
             NotifyAll();
         }
-
+        public bool isFull()
+        {
+            for(int i = 0;i <= 3;i++)
+            {
+                for(int j = 0;j <= 3; j++)
+                {
+                    if(board[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        public bool isOver()
+        {
+            for(int i = 0;i <= 3;i++)
+            {
+                for(int j = 0;j <= 3; j++)
+                {
+                    if (board[i, j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            //line1
+            if (board[0, 0] == board[0, 1] || board[0, 0] == board[1, 0]) return false;
+            else if (board[0, 1] == board[0, 0] || board[0, 1] == board[0, 2] || board[0, 1] == board[1, 1]) return false;
+            else if (board[0, 2] == board[0, 1] || board[0, 2] == board[0, 3] || board[0, 2] == board[1, 2]) return false;
+            else if (board[0, 3] == board[0, 2] || board[0, 3] == board[1, 3]) return false;
+            //line2
+            else if (board[1, 0] == board[0, 0] || board[1, 0] == board[1, 1] || board[1, 0] == board[2, 0]) return false;
+            else if (board[1, 1] == board[1, 0] || board[1, 1] == board[0, 1] || board[1, 1] == board[1, 2] || board[1, 1] == board[2, 1]) return false;
+            else if (board[1, 2] == board[1, 1] || board[1, 2] == board[0, 2] || board[1, 2] == board[1, 3] || board[1, 2] == board[2, 2]) return false;
+            else if (board[1, 3] == board[1, 2] || board[1, 3] == board[0, 3] || board[1, 3] == board[2, 3]) return false;
+            //line3
+            else if (board[2, 0] == board[1, 0] || board[2, 0] == board[2, 1] || board[2, 0] == board[3, 0]) return false;
+            else if (board[2, 1] == board[2, 0] || board[2, 1] == board[1, 1] || board[2, 1] == board[2, 3] || board[2, 1] == board[3, 1]) return false;
+            else if (board[2, 2] == board[2, 1] || board[2, 2] == board[1, 2] || board[2, 2] == board[2, 3] || board[2, 2] == board[3, 2]) return false;
+            else if (board[2, 3] == board[2, 2] || board[2, 3] == board[1, 3] || board[2, 3] == board[3, 3]) return false;
+            //line4
+            else if (board[3, 0] == board[2, 0] || board[3, 0] == board[3, 1]) return false;
+            else if (board[3, 1] == board[3, 0] || board[3, 1] == board[2, 1] || board[3, 1] == board[3, 2]) return false;
+            else if (board[3, 2] == board[3, 1] || board[3, 2] == board[2, 2] || board[3, 2] == board[3, 3]) return false;
+            else if (board[3, 3] == board[3, 2] || board[3, 0] == board[2, 3]) return false;
+            else return true;
+            // wtf i'am doing here?????
+        }
         private int[,] Random(int[,] input)
         {
             while (true)
             {
+                if (isFull())
+                {
+                    break;
+                }
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);
                 if (board[x, y] == 0)
@@ -83,6 +135,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -135,6 +188,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -189,6 +243,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -240,6 +295,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
