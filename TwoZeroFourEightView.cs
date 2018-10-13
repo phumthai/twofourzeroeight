@@ -107,29 +107,29 @@ namespace twozerofoureight
 
         private void Press(object sender, KeyEventArgs e)
         {
-            if(Control.ModifierKeys == Keys.Up)
+            if(e.KeyCode == Keys.Up)
             {
-                btnUp.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.UP);
                 //btnUp.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                btnUp.Focus();
             }
             else if(e.KeyCode == Keys.Right)
             {
-                btnRight.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
                 //btnRight.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                btnRight.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
-                btnDown.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
                 //btnDown.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                btnDown.Focus();
             }
             else if (e.KeyCode == Keys.Left)
             {
-                btnLeft.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
                 //btnLeft.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                btnLeft.Focus();
             }
         }
 
@@ -154,34 +154,6 @@ namespace twozerofoureight
             {
                 controller.ActionPerformed(TwoZeroFourEightController.LEFT);
                 btnLeft.Focus();
-            }
-        }
-
-        private void PressUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-            {
-                btnUp.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.UP);
-                //btnUp.Focus();
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                btnRight.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
-                //btnRight.Focus();
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                btnDown.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
-                //btnDown.Focus();
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                btnLeft.Focus();
-                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
-                //btnLeft.Focus();
             }
         }
     }
