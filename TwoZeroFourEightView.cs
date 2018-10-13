@@ -105,11 +105,83 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
-        private void Up(object sender, KeyEventArgs e)
+        private void Press(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.W)
+            if(Control.ModifierKeys == Keys.Up)
+            {
+                btnUp.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                //btnUp.Focus();
+            }
+            else if(e.KeyCode == Keys.Right)
+            {
+                btnRight.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                //btnRight.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btnDown.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                //btnDown.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                btnLeft.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                //btnLeft.Focus();
+            }
+        }
+
+        private void KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'w'|| e.KeyChar == 'W')
             {
                 controller.ActionPerformed(TwoZeroFourEightController.UP);
+                btnUp.Focus();
+            }
+            else if (e.KeyChar == 'd' || e.KeyChar == 'D')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                btnRight.Focus();
+            }
+            else if (e.KeyChar == 's' || e.KeyChar == 'S')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                btnDown.Focus();
+            }
+            else if (e.KeyChar == 'a' || e.KeyChar == 'A')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                btnLeft.Focus();
+            }
+        }
+
+        private void PressUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                btnUp.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                //btnUp.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                btnRight.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                //btnRight.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btnDown.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                //btnDown.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                btnLeft.Focus();
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                //btnLeft.Focus();
             }
         }
     }
